@@ -67,6 +67,7 @@ const Gallery4 = ({
         <Carousel
           setApi={setCarouselApi}
           opts={{
+            align: "start",
             breakpoints: {
               "(max-width: 768px)": {
                 dragFree: true,
@@ -74,11 +75,11 @@ const Gallery4 = ({
             },
           }}
         >
-          <CarouselContent className="ml-0 justify-center">
+          <CarouselContent className="ml-0 md:justify-center">
             {items.map((item) => (
               <CarouselItem
                 key={item.id}
-                className="max-w-[320px] pl-[20px] lg:max-w-[380px]"
+                className="basis-[85%] sm:basis-auto max-w-[320px] pl-[20px] lg:max-w-[380px]"
               >
                 <a href={item.href} className="group rounded-xl">
                   <div className="group relative h-full min-h-[27rem] max-w-full overflow-hidden rounded-xl md:aspect-[5/4] lg:aspect-[16/9]">
@@ -106,6 +107,19 @@ const Gallery4 = ({
             ))}
           </CarouselContent>
         </Carousel>
+        {/* Mobile dot indicators */}
+        <div className="flex justify-center gap-2 mt-6 md:hidden">
+          {items.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => carouselApi?.scrollTo(idx)}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                currentSlide === idx ? "bg-white" : "bg-white/30"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
