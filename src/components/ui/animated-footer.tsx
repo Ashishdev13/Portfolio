@@ -81,7 +81,7 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer
       ref={footerRef}
-      className="bg-black text-white relative flex flex-col w-full h-full justify-between lg:h-screen select-none"
+      className="bg-black text-white relative flex flex-col w-full h-full justify-between lg:h-screen select-none overflow-hidden"
     >
       <div className="container mx-auto flex flex-col md:flex-row justify-between w-full gap-4 pb-24 pt-8 px-4">
         <div className="space-y-2">
