@@ -533,7 +533,7 @@ function ExperienceTimeline() {
                     <p className="text-white/50 text-xs mt-1">May - Aug 2025 · Sierra Vista, AZ</p>
                   </div>
                   <Image
-                    src={`${bp}/cybereye-logo.png`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cybereye-logo.png`}
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
@@ -562,7 +562,7 @@ function ExperienceTimeline() {
                     <p className="text-primary text-sm">CyberEyeAW</p>
                   </div>
                   <Image
-                    src={`${bp}/cybereye-logo.png`}
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cybereye-logo.png`}
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
