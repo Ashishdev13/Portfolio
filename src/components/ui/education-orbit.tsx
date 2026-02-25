@@ -47,8 +47,8 @@ export default function EducationOrbit({
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative max-w-5xl mx-auto pl-6 md:pl-10 flex items-center justify-between h-[30rem] border border-white/[0.1] bg-card/40 backdrop-blur-sm overflow-hidden rounded-3xl">
-      <div className="w-full md:w-1/2 z-10 pr-4">
+    <section className="relative max-w-5xl mx-auto px-6 md:pl-10 md:pr-0 flex items-center justify-between min-h-0 md:h-[30rem] py-10 md:py-0 border border-white/[0.1] bg-card/40 backdrop-blur-sm overflow-hidden rounded-3xl">
+      <div className="w-full md:w-1/2 z-10 md:pr-4">
         <div className="flex items-center gap-2 mb-4">
           <span className="p-2 rounded-lg bg-primary/10 text-primary">
             <GraduationCap className="w-5 h-5" />
