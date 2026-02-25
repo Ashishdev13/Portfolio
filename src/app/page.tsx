@@ -46,7 +46,7 @@ const fadeUp = {
 
 export default function Home() {
   const screenSize = useScreenSize();
-
+  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
   return (
     <div className="relative min-h-screen bg-background text-foreground">
       {/* Pixel Trail Background */}
@@ -155,7 +155,7 @@ export default function Home() {
               </p>
               <div className="shrink-0">
                 <Image
-                  src="/profile.jpg"
+                  src={`${bp}/profile.jpg`}
                   alt="Ashish Dev Choudhary"
                   width={280}
                   height={360}
@@ -533,7 +533,7 @@ function ExperienceTimeline() {
                     <p className="text-white/50 text-xs mt-1">May - Aug 2025 · Sierra Vista, AZ</p>
                   </div>
                   <Image
-                    src="/cybereye-logo.png"
+                    src={`${bp}/cybereye-logo.png`}
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
@@ -562,7 +562,7 @@ function ExperienceTimeline() {
                     <p className="text-primary text-sm">CyberEyeAW</p>
                   </div>
                   <Image
-                    src="/cybereye-logo.png"
+                    src={`${bp}/cybereye-logo.png`}
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
