@@ -46,9 +46,9 @@ const fadeUp = {
 
 export default function Home() {
   const screenSize = useScreenSize();
-  const bp = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen bg-background text-foreground pb-16 md:pb-0">
       {/* Pixel Trail Background */}
       <div className="fixed inset-0 z-0">
         <PixelTrail
@@ -59,7 +59,7 @@ export default function Home() {
         />
       </div>
 
-      {/* Side Dock Navigation */}
+      {/* Side Dock Navigation - Desktop */}
       <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:block">
         <Dock
           direction="vertical"
@@ -87,6 +87,30 @@ export default function Home() {
           ))}
         </Dock>
       </div>
+
+      {/* Mobile Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 z-50 md:hidden">
+        <div className="flex items-center justify-around bg-black/80 backdrop-blur-lg border-t border-white/[0.1] px-2 py-2 safe-area-bottom">
+          {[
+            { icon: <HomeIcon className="w-5 h-5" />, href: "#", label: "Home" },
+            { icon: <User className="w-5 h-5" />, href: "#about", label: "About" },
+            { icon: <Briefcase className="w-5 h-5" />, href: "#experience", label: "Work" },
+            { icon: <FolderOpen className="w-5 h-5" />, href: "#projects", label: "Projects" },
+            { icon: <Terminal className="w-5 h-5" />, href: "#skills", label: "Skills" },
+            { icon: <GraduationCap className="w-5 h-5" />, href: "#education", label: "Edu" },
+            { icon: <Send className="w-5 h-5" />, href: "#contact", label: "Contact" },
+          ].map((item, idx) => (
+            <a
+              key={idx}
+              href={item.href}
+              className="flex flex-col items-center gap-0.5 text-white/50 hover:text-white transition-colors px-1.5 py-1"
+            >
+              {item.icon}
+              <span className="text-[10px]">{item.label}</span>
+            </a>
+          ))}
+        </div>
+      </nav>
 
       {/* Hero Section - Geometric Shapes */}
       <section className="relative z-10">
@@ -155,7 +179,7 @@ export default function Home() {
               </p>
               <div className="shrink-0">
                 <Image
-                  src={`${bp}/profile.jpg`}
+                  src="/profile.jpg"
                   alt="Ashish Dev Choudhary"
                   width={280}
                   height={360}
@@ -226,7 +250,7 @@ export default function Home() {
             title="Technical Skills"
           />
           <div className="mt-8 bento-grid">
-            <BentoItem className="col-span-2 row-span-2 flex flex-col justify-between">
+            <BentoItem className="md:col-span-2 md:row-span-2 flex flex-col justify-between">
               <div>
                 <h3 className="text-2xl font-bold text-white">Security Tools</h3>
                 <p className="mt-2 text-gray-400">Offensive & defensive tooling for penetration testing, monitoring, and forensic analysis.</p>
@@ -264,7 +288,7 @@ export default function Home() {
               </div>
             </BentoItem>
 
-            <BentoItem className="row-span-2 flex flex-col justify-between">
+            <BentoItem className="md:row-span-2 flex flex-col justify-between">
               <div>
                 <h3 className="text-xl font-bold text-white">Core Cyber Skills</h3>
                 <p className="mt-2 text-gray-400 text-sm">Hands-on offensive and defensive security expertise.</p>
@@ -278,7 +302,7 @@ export default function Home() {
               </div>
             </BentoItem>
 
-            <BentoItem className="col-span-2">
+            <BentoItem className="md:col-span-2">
               <h3 className="text-xl font-bold text-white">Networking & Defense</h3>
               <p className="mt-2 text-gray-400 text-sm">SOC operations, monitoring, and network security architecture.</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
@@ -445,14 +469,14 @@ function ExperienceTimeline() {
           </TimelineContent>
         </div>
 
-        <div className="lg:grid lg:grid-cols-3 gap-3 flex flex-col w-full lg:px-4 px-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 w-full lg:px-4 px-2">
           {/* Column 1 */}
-          <div className="md:flex lg:flex-col lg:space-y-3 h-full lg:gap-0 gap-3">
+          <div className="flex flex-col gap-3">
             <TimelineContent
               animationNum={0}
               customVariants={revealVariants}
               timelineRef={timelineRef}
-              className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-card/60 overflow-hidden rounded-2xl border border-white/[0.1] p-6"
+              className="lg:flex-[7] flex flex-col justify-between relative bg-card/60 overflow-hidden rounded-2xl border border-white/[0.1] p-6"
             >
               <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:50px_56px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
               <article className="mt-auto relative z-10">
@@ -485,7 +509,7 @@ function ExperienceTimeline() {
               animationNum={1}
               customVariants={revealVariants}
               timelineRef={timelineRef}
-              className="lg:flex-[3] flex-[4] lg:h-fit flex flex-col justify-between relative bg-indigo-600 text-white overflow-hidden rounded-2xl border border-indigo-500/30 p-6"
+              className="lg:flex-[3] flex flex-col justify-between relative bg-indigo-600 text-white overflow-hidden rounded-2xl border border-indigo-500/30 p-6"
             >
               <article className="mt-auto">
                 <p className="text-sm leading-relaxed text-white/90">
@@ -511,7 +535,7 @@ function ExperienceTimeline() {
           </div>
 
           {/* Column 2 */}
-          <div className="lg:h-full md:flex lg:flex-col h-fit lg:space-y-3 lg:gap-0 gap-3">
+          <div className="flex flex-col gap-3">
             <TimelineContent
               animationNum={2}
               customVariants={revealVariants}
@@ -533,7 +557,7 @@ function ExperienceTimeline() {
                     <p className="text-white/50 text-xs mt-1">May - Aug 2025 · Sierra Vista, AZ</p>
                   </div>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cybereye-logo.png`}
+                    src="/cybereye-logo.png"
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
@@ -562,7 +586,7 @@ function ExperienceTimeline() {
                     <p className="text-primary text-sm">CyberEyeAW</p>
                   </div>
                   <Image
-                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/cybereye-logo.png`}
+                    src="/cybereye-logo.png"
                     alt="CyberEyeAW"
                     width={100}
                     height={100}
@@ -603,12 +627,12 @@ function ExperienceTimeline() {
           </div>
 
           {/* Column 3 */}
-          <div className="h-full md:flex lg:flex-col lg:space-y-3 lg:gap-0 gap-3">
+          <div className="flex flex-col gap-3">
             <TimelineContent
               animationNum={5}
               customVariants={revealVariants}
               timelineRef={timelineRef}
-              className="lg:flex-[3] flex-[4] flex flex-col justify-between relative bg-indigo-600 text-white overflow-hidden rounded-2xl border border-indigo-500/30 p-6"
+              className="lg:flex-[3] flex flex-col justify-between relative bg-indigo-600 text-white overflow-hidden rounded-2xl border border-indigo-500/30 p-6"
             >
               <article className="mt-auto">
                 <p className="text-sm leading-relaxed text-white/90">
@@ -636,7 +660,7 @@ function ExperienceTimeline() {
               animationNum={6}
               customVariants={revealVariants}
               timelineRef={timelineRef}
-              className="lg:flex-[7] flex-[6] flex flex-col justify-between relative bg-card/60 overflow-hidden rounded-2xl border border-white/[0.1] p-6"
+              className="lg:flex-[7] flex flex-col justify-between relative bg-card/60 overflow-hidden rounded-2xl border border-white/[0.1] p-6"
             >
               <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:50px_56px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
               <article className="mt-auto relative z-10">
@@ -697,7 +721,7 @@ function ProjectCard({
       custom={index}
       className="block"
     >
-      <div className="border border-white/[0.15] dark:border-white/[0.15] flex flex-col items-start p-4 relative h-[22rem] rounded-2xl bg-card/40 backdrop-blur-sm hover:border-primary/40 transition-colors group">
+      <div className="border border-white/[0.15] dark:border-white/[0.15] flex flex-col items-start p-4 relative h-[20rem] md:h-[22rem] rounded-2xl bg-card/40 backdrop-blur-sm hover:border-primary/40 transition-colors group">
         <CornerIcon className="absolute h-5 w-5 -top-2.5 -left-2.5 text-white/40" />
         <CornerIcon className="absolute h-5 w-5 -bottom-2.5 -left-2.5 text-white/40" />
         <CornerIcon className="absolute h-5 w-5 -top-2.5 -right-2.5 text-white/40" />
