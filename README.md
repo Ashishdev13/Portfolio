@@ -2,7 +2,7 @@
 
 A personal portfolio website showcasing my projects, skills, and experience in cybersecurity and software development.
 
-🌐 **Live site:** [ashishdev13.github.io/Portfolio](https://ashishdev13.github.io/Portfolio)
+🌐 **Live site:** ashishdevchoudhary.com
 
 ## Tech Stack
 
