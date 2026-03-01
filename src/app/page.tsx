@@ -205,38 +205,59 @@ export default function Home() {
           <div className="mt-8 grid md:grid-cols-2 gap-6">
             <ProjectCard
               index={0}
+              title="Web Vulnerability Scanner"
+              tech="Python, SQLi, XSS, SSL/TLS, Security"
+              link="https://github.com/Ashishdev13/web-vulnerability-scanner"
+              description="Automated web vulnerability scanner (Mini Burp Suite) that tests for SQLi, XSS, open redirects, missing headers, directory enumeration, cookie security, and SSL/TLS weaknesses."
+            />
+            <ProjectCard
+              index={1}
+              title="OSINT Reconnaissance Automation Tool"
+              tech="Python, OSINT, DNS, Shodan, Recon"
+              link="https://github.com/Ashishdev13/OSINT-Reconnaissance-Automation-Tool"
+              description="Modular Python OSINT framework for authorized domain reconnaissance — WHOIS, DNS, subdomain brute-force, email harvesting, tech fingerprinting, port scanning, Shodan CVE lookup, and HTML report generation."
+            />
+            <ProjectCard
+              index={2}
               title="AI-Based BadUSB Script Generator"
               tech="AI, DuckyScript, Red Teaming, Flipper Zero"
               link="https://badusb.io"
               description="Implemented a DuckyScript generation web app with an AI model, generating 30+ unique payloads for red teaming. Tested and validated 150+ script variants across Windows, macOS, and Linux with 95% execution accuracy."
             />
             <ProjectCard
-              index={1}
+              index={3}
+              title="Password Strength Analyzer"
+              tech="Python, Security, Breach Detection"
+              link="https://github.com/Ashishdev13/Password-Strength-Analyzer"
+              description="A Python tool to analyze password strength, detect common/weak passwords, check against breach database concepts, and provide actionable security recommendations."
+            />
+            <ProjectCard
+              index={4}
               title="Decoy & Honeypot Deployment Assistant"
               tech="Python, Honeypot, TTP Analysis, Automation"
               link="https://github.com/Ashishdev13/Decoy-Honeypot-Deployment-Assistant"
               description="Built an automated honeypot deployment script that cut setup time by 70% and boosted simulation efficiency. Captured and logged over 500 unauthorized access attempts in controlled environments for detailed TTP analysis."
             />
             <ProjectCard
-              index={2}
-              title="CyberSec-Learn"
-              tech="HTML, CSS, Cybersecurity, Education"
-              link="https://github.com/Ashishdev13/CyberSec-Learn"
-              description="A community-driven cybersecurity learning platform designed to share knowledge, resources, and hands-on tutorials for aspiring security professionals."
+              index={5}
+              title="Budget Management App"
+              tech="Java, OOP, GUI, Desktop"
+              link="https://github.com/Ashishdev13/Budget_Managment_App"
+              description="A Java desktop application for personal finance management, demonstrating object-oriented design principles, GUI development, and structured financial tracking."
             />
             <ProjectCard
-              index={3}
+              index={6}
+              title="Cryptogram App"
+              tech="Java, Cryptography, Puzzles"
+              link="https://github.com/Ashishdev13/Cryptogram_App"
+              description="A cryptogram puzzle application based on alphabetic substitution ciphers, where users decode encrypted messages by identifying letter permutation patterns."
+            />
+            <ProjectCard
+              index={7}
               title="Ciphertext Translator"
               tech="JavaScript, Cryptography, Web"
               link="https://github.com/Ashishdev13/Ciphertext_Translator"
               description="A web-based tool that converts plaintext into various cipher formats, demonstrating core cryptographic concepts and substitution cipher techniques."
-            />
-            <ProjectCard
-              index={4}
-              title="Budget Management Website"
-              tech="JavaScript, HTML, CSS, Finance"
-              link="https://github.com/Ashishdev13/Budget_Management_Website"
-              description="A full-stack personal finance tracker for managing budgets, tracking expenses, and competing with others through a savings leaderboard."
             />
           </div>
         </div>
