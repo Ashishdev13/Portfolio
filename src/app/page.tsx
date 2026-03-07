@@ -30,6 +30,7 @@ import {
   FolderOpen,
   ShieldCheck,
   Send,
+  FileText,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
@@ -111,6 +112,19 @@ export default function Home() {
           ))}
         </div>
       </nav>
+
+      {/* Floating Resume Button - Bottom Right */}
+      <a
+        href="/SOC_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 md:bottom-8 md:right-8 group"
+      >
+        <div className="flex items-center gap-2 px-4 py-3 rounded-full bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-600/30 transition-all duration-300 hover:scale-105">
+          <FileText className="w-5 h-5" />
+          <span className="text-sm font-medium">Resume</span>
+        </div>
+      </a>
 
       {/* Hero Section - Geometric Shapes */}
       <section className="relative z-10">
