@@ -3,17 +3,20 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Ashish Dev Choudhary - Cybersecurity & Offensive Research</title>
-<meta name="description" content="Portfolio of Ashish Dev Choudhary. Cybersecurity, threat intelligence, and offensive security research." />
+<title>Ashish Dev Choudhary // Cybersecurity & Offensive Research</title>
+<meta name="description" content="Ashish Dev Choudhary - cybersecurity engineer. Threat intelligence, offensive security, SOC operations, and security automation." />
+<meta name="theme-color" content="#04060a" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- Noise / grain overlay -->
-<div class="grain" aria-hidden="true"></div>
+<!-- Background layers -->
+<canvas class="matrix" id="matrix" aria-hidden="true"></canvas>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
 <!-- Custom cursor -->
 <div class="cursor" id="cursor" aria-hidden="true"></div>
@@ -22,194 +25,211 @@
 <!-- Scroll progress -->
 <div class="progress" id="progress" aria-hidden="true"></div>
 
+<!-- Status ticker -->
+<div class="statusbar" aria-hidden="true">
+  <div class="status-track">
+    <span><i class="led led-ok"></i> SYSTEM: ONLINE</span>
+    <span class="div">::</span>
+    <span>OPERATOR: ashishdev13</span>
+    <span class="div">::</span>
+    <span>ROLE: SECURITY ENGINEER</span>
+    <span class="div">::</span>
+    <span><i class="led led-ok"></i> STATUS: OPEN TO ROLES</span>
+    <span class="div">::</span>
+    <span>LOC: TUCSON, AZ -&gt; CH</span>
+    <span class="div">::</span>
+    <span>CLEARANCE: PUBLIC</span>
+    <span class="div">::</span>
+    <span><i class="led led-ok"></i> SYSTEM: ONLINE</span>
+    <span class="div">::</span>
+    <span>OPERATOR: ashishdev13</span>
+    <span class="div">::</span>
+    <span>ROLE: SECURITY ENGINEER</span>
+    <span class="div">::</span>
+    <span><i class="led led-ok"></i> STATUS: OPEN TO ROLES</span>
+    <span class="div">::</span>
+    <span>LOC: TUCSON, AZ -&gt; CH</span>
+    <span class="div">::</span>
+    <span>CLEARANCE: PUBLIC</span>
+    <span class="div">::</span>
+  </div>
+</div>
+
 <!-- Nav -->
 <header class="nav">
   <a class="nav-mark" href="#top" data-cursor="link">
-    <span class="mark-glyph">A</span>
-    <span class="mark-text">Ashish Dev Choudhary</span>
+    <span class="mark-glyph">A//</span>
+    <span class="mark-text">ashish_dev_choudhary</span>
   </a>
   <nav class="nav-links" aria-label="Primary">
-    <a href="#work" data-cursor="link"><span>01</span> Work</a>
-    <a href="#about" data-cursor="link"><span>02</span> About</a>
-    <a href="#skills" data-cursor="link"><span>03</span> Skills</a>
-    <a href="#contact" data-cursor="link"><span>04</span> Contact</a>
+    <a href="#work" data-cursor="link"><span>01.</span>work</a>
+    <a href="#about" data-cursor="link"><span>02.</span>about</a>
+    <a href="#skills" data-cursor="link"><span>03.</span>skills</a>
+    <a href="#contact" data-cursor="link"><span>04.</span>contact</a>
   </nav>
-  <div class="nav-right">
-    <a class="nav-cta" href="#contact" data-cursor="link">
-      <span class="dot"></span> Open to roles
-    </a>
-    <a class="nav-resume" href="SOC_Resume.pdf" target="_blank" rel="noopener" data-cursor="link" aria-label="Download resume">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <span>Resume</span>
-    </a>
-  </div>
+  <a class="nav-resume" href="SOC_Resume.pdf" target="_blank" rel="noopener" data-cursor="link" aria-label="Download resume">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>./resume.pdf</span>
+  </a>
 </header>
 
 <!-- Hero -->
 <section class="hero" id="top">
-  <div class="aurora" aria-hidden="true">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hero-grid">
+    <div class="hero-main">
+      <div class="prompt reveal"><span class="psign">$</span> whoami<span class="cc">_</span></div>
 
-  <h1 class="display" aria-label="Security research with intent">
-    <span class="line-mask"><span class="line-inner">Security</span></span>
-    <span class="line-mask"><span class="line-inner italic">research <em class="amp">&amp;</em></span></span>
-    <span class="line-mask"><span class="line-inner">offensive <em class="accent">craft</em>.</span></span>
-  </h1>
+      <h1 class="display" data-text="SECURITY RESEARCH & OFFENSIVE CRAFT">
+        <span class="line-mask"><span class="line-inner">Security research</span></span>
+        <span class="line-mask"><span class="line-inner">&amp; <span class="hl">offensive craft</span><span class="dot-end">.</span></span></span>
+      </h1>
 
-  <p class="hero-sub">
-    I build tools and break systems for a living - threat intelligence, vulnerability
-    research, and automation that turns noise into signal. A recent
-    <strong>Cyber Operations</strong> graduate from the University of Arizona,
-    now a cybersecurity engineer focused on SOC, penetration testing, and OSINT.
-  </p>
+      <p class="hero-sub reveal">
+        I build tools and break systems for a living - threat intelligence, vulnerability
+        research, and automation that turns noise into signal. A recent
+        <strong>Cyber Operations</strong> graduate from the University of Arizona,
+        now a cybersecurity engineer focused on SOC, penetration testing, and OSINT.
+      </p>
 
-  <div class="hero-cta">
-    <a href="#work" class="btn btn-primary" data-cursor="view">
-      <span>See selected work</span>
-      <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="#contact" class="btn btn-ghost" data-cursor="link">Get in touch</a>
-  </div>
+      <div class="hero-cta reveal">
+        <a href="#work" class="btn btn-primary" data-cursor="view">
+          <span>./view_operations</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contact" class="btn btn-ghost" data-cursor="link">establish_connection</a>
+      </div>
+    </div>
 
-  <div class="hero-foot">
-    <div class="stat"><b>5+</b><span>projects shipped</span></div>
-    <div class="stat"><b>3.5</b><span>GPA · Dean's List</span></div>
-    <div class="stat"><b>100+</b><span>weekly incidents triaged</span></div>
-    <div class="stat"><b>3</b><span>industry certs</span></div>
+    <aside class="hero-readout reveal">
+      <div class="readout-head"><span class="led led-ok"></span> live_metrics</div>
+      <ul class="readout-list">
+        <li><span class="rk">projects_shipped</span><b data-count="5" data-suffix="+">5+</b></li>
+        <li><span class="rk">gpa // dean's_list</span><b>3.5</b></li>
+        <li><span class="rk">weekly_incidents</span><b data-count="100" data-suffix="+">100+</b></li>
+        <li><span class="rk">industry_certs</span><b data-count="3">3</b></li>
+        <li><span class="rk">resolution_rate</span><b data-count="99" data-suffix="%">99%</b></li>
+        <li><span class="rk">exposure_reduced</span><b data-count="70" data-suffix="%">70%</b></li>
+      </ul>
+    </aside>
   </div>
 
   <a class="scroll-hint" href="#marquee" data-cursor="link" aria-label="Scroll">
-    <span></span>
-    <small>Scroll</small>
+    <span></span><small>scroll</small>
   </a>
 </section>
 
-<!-- Marquee -->
+<!-- Marquee / threat feed -->
 <section class="marquee" id="marquee" aria-hidden="true">
   <div class="marquee-track">
-    <span>Threat Intelligence</span><span class="sep">◇</span>
-    <span>Vulnerability Research</span><span class="sep">◇</span>
-    <span>Red Teaming</span><span class="sep">◇</span>
-    <span>OSINT</span><span class="sep">◇</span>
-    <span>Malware Analysis</span><span class="sep">◇</span>
-    <span>Digital Forensics</span><span class="sep">◇</span>
-    <span>SOC Operations</span><span class="sep">◇</span>
-    <span>Offensive Security</span><span class="sep">◇</span>
-    <!-- duplicate for seamless loop -->
-    <span>Threat Intelligence</span><span class="sep">◇</span>
-    <span>Vulnerability Research</span><span class="sep">◇</span>
-    <span>Red Teaming</span><span class="sep">◇</span>
-    <span>OSINT</span><span class="sep">◇</span>
-    <span>Malware Analysis</span><span class="sep">◇</span>
-    <span>Digital Forensics</span><span class="sep">◇</span>
-    <span>SOC Operations</span><span class="sep">◇</span>
-    <span>Offensive Security</span><span class="sep">◇</span>
+    <span>THREAT INTELLIGENCE</span><span class="sep">/</span>
+    <span>VULNERABILITY RESEARCH</span><span class="sep">/</span>
+    <span>RED TEAMING</span><span class="sep">/</span>
+    <span>OSINT</span><span class="sep">/</span>
+    <span>MALWARE ANALYSIS</span><span class="sep">/</span>
+    <span>DIGITAL FORENSICS</span><span class="sep">/</span>
+    <span>SOC OPERATIONS</span><span class="sep">/</span>
+    <span>OFFENSIVE SECURITY</span><span class="sep">/</span>
+    <span>THREAT INTELLIGENCE</span><span class="sep">/</span>
+    <span>VULNERABILITY RESEARCH</span><span class="sep">/</span>
+    <span>RED TEAMING</span><span class="sep">/</span>
+    <span>OSINT</span><span class="sep">/</span>
+    <span>MALWARE ANALYSIS</span><span class="sep">/</span>
+    <span>DIGITAL FORENSICS</span><span class="sep">/</span>
+    <span>SOC OPERATIONS</span><span class="sep">/</span>
+    <span>OFFENSIVE SECURITY</span><span class="sep">/</span>
   </div>
 </section>
 
 <!-- Work -->
 <section class="section work" id="work">
   <header class="sec-head">
-    <span class="eyebrow">Selected Work / 01</span>
-    <h2 class="sec-title">Tools I've built, <em>bugs I've found.</em></h2>
+    <span class="eyebrow">// 01 - operations_log</span>
+    <h2 class="sec-title">Tools I've built, <span class="hl">bugs I've found.</span></h2>
     <p class="sec-kicker">
       A short list of things that made it past my usual delete-it filter - shipped,
       tested, and still running somewhere.
     </p>
   </header>
 
-  <ul class="work-list">
-    <li class="work-item reveal" data-cursor="view" data-href="https://github.com/Ashishdev13/web-vulnerability-scanner">
+  <ul class="work-grid">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://github.com/Ashishdev13/web-vulnerability-scanner" target="_blank" rel="noopener">
-        <div class="work-num">01</div>
-        <div class="work-title">Web Vulnerability Scanner</div>
-        <div class="work-tags">
-          <span>Python</span><span>SQLi</span><span>XSS</span><span>SSL/TLS</span>
+        <div class="work-top">
+          <span class="work-num">OP-01</span>
+          <span class="work-status"><i class="led led-ok"></i> DEPLOYED · 2025</span>
         </div>
-        <div class="work-year">2025</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">Web Vulnerability Scanner</h3>
+        <p class="work-desc">Automated scanner for SQLi, XSS, and SSL/TLS misconfigurations across web targets.</p>
+        <div class="work-tags"><span>Python</span><span>SQLi</span><span>XSS</span><span>SSL/TLS</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
 
-    <li class="work-item reveal" data-cursor="view" data-href="https://github.com/Ashishdev13/OSINT-Reconnaissance-Automation-Tool">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://github.com/Ashishdev13/OSINT-Reconnaissance-Automation-Tool" target="_blank" rel="noopener">
-        <div class="work-num">02</div>
-        <div class="work-title">OSINT Reconnaissance Automation</div>
-        <div class="work-tags">
-          <span>Python</span><span>DNS</span><span>Shodan</span><span>Recon</span>
+        <div class="work-top">
+          <span class="work-num">OP-02</span>
+          <span class="work-status"><i class="led led-ok"></i> DEPLOYED · 2025</span>
         </div>
-        <div class="work-year">2025</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">OSINT Reconnaissance Automation</h3>
+        <p class="work-desc">Recon pipeline chaining DNS, Shodan, and subdomain discovery into one report.</p>
+        <div class="work-tags"><span>Python</span><span>DNS</span><span>Shodan</span><span>Recon</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
 
-    <li class="work-item reveal" data-cursor="view" data-href="https://github.com/Ashishdev13">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://github.com/Ashishdev13" target="_blank" rel="noopener">
-        <div class="work-num">03</div>
-        <div class="work-title">LLM-Driven OSINT Framework</div>
-        <div class="work-tags">
-          <span>Python</span><span>LLM</span><span>ReAct</span><span>MRKL</span>
+        <div class="work-top">
+          <span class="work-num">OP-03</span>
+          <span class="work-status"><i class="led led-run"></i> ACTIVE · 2026</span>
         </div>
-        <div class="work-year">2026</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">LLM-Driven OSINT Framework</h3>
+        <p class="work-desc">Agentic recon framework using ReAct and MRKL reasoning to drive OSINT tooling.</p>
+        <div class="work-tags"><span>Python</span><span>LLM</span><span>ReAct</span><span>MRKL</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
 
-    <li class="work-item reveal" data-cursor="view" data-href="https://badusb.io">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://badusb.io" target="_blank" rel="noopener">
-        <div class="work-num">04</div>
-        <div class="work-title">AI BadUSB Script Generator</div>
-        <div class="work-tags">
-          <span>LLM</span><span>DuckyScript</span><span>Red Team</span><span>Flipper</span>
+        <div class="work-top">
+          <span class="work-num">OP-04</span>
+          <span class="work-status"><i class="led led-ok"></i> DEPLOYED · 2024</span>
         </div>
-        <div class="work-year">2024</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">AI BadUSB Script Generator</h3>
+        <p class="work-desc">LLM tool that generates DuckyScript payloads for Flipper Zero red-team drops.</p>
+        <div class="work-tags"><span>LLM</span><span>DuckyScript</span><span>Red Team</span><span>Flipper</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
 
-    <li class="work-item reveal" data-cursor="view" data-href="https://github.com/Ashishdev13/Decoy-Honeypot-Deployment-Assistant">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://github.com/Ashishdev13/Decoy-Honeypot-Deployment-Assistant" target="_blank" rel="noopener">
-        <div class="work-num">05</div>
-        <div class="work-title">Honeypot Deployment Assistant</div>
-        <div class="work-tags">
-          <span>Python</span><span>Honeypot</span><span>TTP</span><span>Automation</span>
+        <div class="work-top">
+          <span class="work-num">OP-05</span>
+          <span class="work-status"><i class="led led-ok"></i> DEPLOYED · 2024</span>
         </div>
-        <div class="work-year">2024</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">Honeypot Deployment Assistant</h3>
+        <p class="work-desc">Automates decoy deployment and maps captured attacker TTPs to MITRE ATT&amp;CK.</p>
+        <div class="work-tags"><span>Python</span><span>Honeypot</span><span>TTP</span><span>Automation</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
 
-    <li class="work-item reveal" data-cursor="view" data-href="https://github.com/Ashishdev13/Password-Strength-Analyzer">
+    <li class="panel work-card reveal" data-cursor="view">
       <a href="https://github.com/Ashishdev13/Password-Strength-Analyzer" target="_blank" rel="noopener">
-        <div class="work-num">06</div>
-        <div class="work-title">Password Strength Analyzer</div>
-        <div class="work-tags">
-          <span>Python</span><span>Entropy</span><span>Breach DB</span>
+        <div class="work-top">
+          <span class="work-num">OP-06</span>
+          <span class="work-status"><i class="led led-ok"></i> DEPLOYED · 2024</span>
         </div>
-        <div class="work-year">2024</div>
-        <div class="work-arrow">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
-        </div>
+        <h3 class="work-title">Password Strength Analyzer</h3>
+        <p class="work-desc">Entropy-based password scorer cross-checked against known breach datasets.</p>
+        <div class="work-tags"><span>Python</span><span>Entropy</span><span>Breach DB</span></div>
+        <div class="work-arrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
       </a>
-      <div class="work-hover" aria-hidden="true"></div>
     </li>
   </ul>
 </section>
@@ -217,12 +237,12 @@
 <!-- About -->
 <section class="section about" id="about">
   <header class="sec-head">
-    <span class="eyebrow">About / 02</span>
-    <h2 class="sec-title">The short <em>version.</em></h2>
+    <span class="eyebrow">// 02 - operator_profile</span>
+    <h2 class="sec-title">The short <span class="hl">version.</span></h2>
   </header>
 
   <div class="about-grid">
-    <div class="about-body">
+    <div class="about-body panel reveal">
       <p class="lead">
         I'm a recent <strong>Cyber Operations</strong> graduate from the
         University of Arizona (BAS, CS minor). I spend most of my time inside
@@ -241,27 +261,22 @@
         This September I start an MSE in Information and Cyber Security at OST
         (Ostschweizer Fachhochschule) in Rapperswil, Switzerland.
       </p>
-      <p>
-        Outside of work I read too much about threat actor kill-chains and pretend
-        I'll one day finish learning Rust.
-      </p>
 
       <ul class="about-list">
-        <li><span>Now</span><b>Open to SOC, Pentest &amp; Security Engineer roles</b></li>
-        <li><span>Built</span><b>AI security eval framework vs OWASP Top 10</b></li>
-        <li><span>Stack</span><b>Python · Semgrep · Bandit · YARA · Ghidra · Volatility</b></li>
-        <li><span>Certs</span><b>CompTIA Security+ · eJPT · ICCA</b></li>
-        <li><span>Next</span><b>MSE Info &amp; Cyber Security, OST Switzerland · Sep 2026</b></li>
+        <li><span>now</span><b>Open to SOC, Pentest &amp; Security Engineer roles</b></li>
+        <li><span>built</span><b>AI security eval framework vs OWASP Top 10</b></li>
+        <li><span>stack</span><b>Python · Semgrep · Bandit · YARA · Ghidra · Volatility</b></li>
+        <li><span>certs</span><b>CompTIA Security+ · eJPT · ICCA</b></li>
+        <li><span>next</span><b>MSE Info &amp; Cyber Security, OST Switzerland · Sep 2026</b></li>
       </ul>
     </div>
 
-    <aside class="about-card">
-      <div class="about-card-inner">
-        <div class="about-card-head">
-          <span class="dot"></span>
-          <span>/~ whoami</span>
-        </div>
-        <pre class="mono">
+    <aside class="about-card panel reveal">
+      <div class="about-card-head">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span>ashish@soc:~</span>
+      </div>
+      <pre class="mono">
 <span class="c-dim">$</span> whoami
 <span class="c-out">ashishdev13</span>
 
@@ -272,13 +287,12 @@
 - LLM x security</span>
 
 <span class="c-dim">$</span> uptime
-<span class="c-out">2022-2026 · GPA 3.5 · dean's list · graduated</span>
+<span class="c-out">2022-2026 · GPA 3.5 · dean's list</span>
 
 <span class="c-dim">$</span> location
-<span class="c-out">Tucson, AZ - relocating to Switzerland, Sept 2026</span>
+<span class="c-out">Tucson, AZ -> Switzerland 2026</span>
 
-<span class="c-dim">$</span> ▍</pre>
-      </div>
+<span class="c-dim">$</span> <span class="caret">▍</span></pre>
     </aside>
   </div>
 </section>
@@ -286,41 +300,41 @@
 <!-- Experience -->
 <section class="section timeline" id="experience">
   <header class="sec-head">
-    <span class="eyebrow">Experience</span>
-    <h2 class="sec-title">A <em>timeline</em> of paid curiosity.</h2>
+    <span class="eyebrow">// mission_log - experience</span>
+    <h2 class="sec-title">A <span class="hl">timeline</span> of paid curiosity.</h2>
   </header>
 
   <ol class="time-list">
-    <li class="time-item reveal">
-      <div class="time-date">2025 - Now</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">2025 - NOW</div>
       <div class="time-body">
         <h3>Cybersecurity Fellow</h3>
         <p class="org">Handshake AI · San Francisco, CA</p>
-        <p>Auditing prompt-response pairs and evaluating LLM outputs on cybersecurity-focused projects. Designing domain-specific prompts to improve correctness and alignment.</p>
+        <p class="time-text">Auditing prompt-response pairs and evaluating LLM outputs on cybersecurity-focused projects. Designing domain-specific prompts to improve correctness and alignment.</p>
       </div>
     </li>
-    <li class="time-item reveal">
-      <div class="time-date">Jan - May 2026</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">JAN - MAY 2026</div>
       <div class="time-body">
         <h3>UG Cybersecurity Research Assistant</h3>
         <p class="org">University of Arizona · Tucson, AZ</p>
-        <p>Designed a critique-based evaluation framework for LLM-generated code against OWASP Top 10. Built a Python pipeline that combined static analysis, rule-based scanning (Semgrep/Bandit), and LLM reasoning.</p>
+        <p class="time-text">Designed a critique-based evaluation framework for LLM-generated code against OWASP Top 10. Built a Python pipeline that combined static analysis, rule-based scanning (Semgrep/Bandit), and LLM reasoning.</p>
       </div>
     </li>
-    <li class="time-item reveal">
-      <div class="time-date">May - Aug 2025</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">MAY - AUG 2025</div>
       <div class="time-body">
         <h3>Jr. Security Operations Analyst</h3>
         <p class="org">CyberEyeAW · Sierra Vista, AZ</p>
-        <p>Triaged 100+ weekly security incidents with a 99% resolution rate. Ran vulnerability assessments that reduced exposure by 70%. Collaborated with SOC teams on ThreatLocker tuning - cutting response time 30%.</p>
+        <p class="time-text">Triaged 100+ weekly security incidents with a 99% resolution rate. Ran vulnerability assessments that reduced exposure by 70%. Collaborated with SOC teams on ThreatLocker tuning - cutting response time 30%.</p>
       </div>
     </li>
-    <li class="time-item reveal">
-      <div class="time-date">May - Aug 2024</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">MAY - AUG 2024</div>
       <div class="time-body">
         <h3>Cyber Intelligence Intern</h3>
         <p class="org">CogMac · New Delhi, India</p>
-        <p>Investigated 50+ risks in hardware and financial systems, helping cut response time by 30%. Documented 25+ adversary TTPs via OSINT - playbooks adopted by 7 teams. Automated data pipelines that saved ~40 hrs/month.</p>
+        <p class="time-text">Investigated 50+ risks in hardware and financial systems, helping cut response time by 30%. Documented 25+ adversary TTPs via OSINT - playbooks adopted by 7 teams. Automated data pipelines that saved ~40 hrs/month.</p>
       </div>
     </li>
   </ol>
@@ -329,25 +343,25 @@
 <!-- Education -->
 <section class="section timeline" id="education">
   <header class="sec-head">
-    <span class="eyebrow">Education</span>
-    <h2 class="sec-title">Where I <em>trained.</em></h2>
+    <span class="eyebrow">// training_record - education</span>
+    <h2 class="sec-title">Where I <span class="hl">trained.</span></h2>
   </header>
 
   <ol class="time-list">
-    <li class="time-item reveal">
-      <div class="time-date">Sep 2026 - 2028</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">SEP 2026 - 2028</div>
       <div class="time-body">
         <h3>MSE in Information and Cyber Security</h3>
         <p class="org">OST - Ostschweizer Fachhochschule · Rapperswil, Switzerland</p>
-        <p>Starting September 2026. An 18-month, 3-semester master's focused on information and cyber security.</p>
+        <p class="time-text">Starting September 2026. An 18-month, 3-semester master's focused on information and cyber security.</p>
       </div>
     </li>
-    <li class="time-item reveal">
-      <div class="time-date">Aug 2022 - May 2026</div>
+    <li class="time-item panel reveal">
+      <div class="time-date">AUG 2022 - MAY 2026</div>
       <div class="time-body">
         <h3>BAS in Cyber Operations, Minor in Computer Science</h3>
         <p class="org">University of Arizona · Tucson, AZ</p>
-        <p>Completed May 2026. GPA 3.5/4.0, Dean's List. Coursework across active cyber defense, threat intelligence, forensics, and cyber warfare.</p>
+        <p class="time-text">Completed May 2026. GPA 3.5/4.0, Dean's List. Coursework across active cyber defense, threat intelligence, forensics, and cyber warfare.</p>
       </div>
     </li>
   </ol>
@@ -356,63 +370,51 @@
 <!-- Skills -->
 <section class="section skills" id="skills">
   <header class="sec-head">
-    <span class="eyebrow">Skills / 03</span>
-    <h2 class="sec-title">Working <em>toolbox.</em></h2>
+    <span class="eyebrow">// 03 - capability_matrix</span>
+    <h2 class="sec-title">Working <span class="hl">toolbox.</span></h2>
   </header>
 
   <div class="skills-grid">
-    <article class="skill-card reveal">
-      <header><span>01</span><h4>Offensive</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[01]</span><h4>Offensive</h4></header>
       <p>Penetration testing, red teaming, vulnerability research, exploit development, reverse engineering.</p>
-      <ul>
-        <li>Burp Suite</li><li>Metasploit</li><li>Nmap</li><li>Nessus</li><li>Ghidra</li><li>John</li><li>Hashcat</li>
-      </ul>
+      <ul><li>Burp Suite</li><li>Metasploit</li><li>Nmap</li><li>Nessus</li><li>Ghidra</li><li>John</li><li>Hashcat</li></ul>
     </article>
-    <article class="skill-card reveal">
-      <header><span>02</span><h4>Defensive</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[02]</span><h4>Defensive</h4></header>
       <p>SOC operations, incident response, threat hunting, SIEM tuning, forensic triage.</p>
-      <ul>
-        <li>Splunk</li><li>Wireshark</li><li>Snort</li><li>ThreatLocker</li><li>YARA</li><li>Volatility</li>
-      </ul>
+      <ul><li>Splunk</li><li>Wireshark</li><li>Snort</li><li>ThreatLocker</li><li>YARA</li><li>Volatility</li></ul>
     </article>
-    <article class="skill-card reveal">
-      <header><span>03</span><h4>Languages</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[03]</span><h4>Languages</h4></header>
       <p>Python-first. Comfortable low-level when required, plus the web languages for building tools around findings.</p>
-      <ul>
-        <li>Python</li><li>Java</li><li>C</li><li>JavaScript</li><li>Bash</li><li>PowerShell</li><li>SQL</li>
-      </ul>
+      <ul><li>Python</li><li>Java</li><li>C</li><li>JavaScript</li><li>Bash</li><li>PowerShell</li><li>SQL</li></ul>
     </article>
-    <article class="skill-card reveal">
-      <header><span>04</span><h4>Frameworks</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[04]</span><h4>Frameworks</h4></header>
       <p>Mapping work to standards the rest of the org actually cares about.</p>
-      <ul>
-        <li>MITRE ATT&amp;CK</li><li>NIST CSF</li><li>OWASP Top 10</li><li>ISO 27001</li><li>CIS Controls</li>
-      </ul>
+      <ul><li>MITRE ATT&amp;CK</li><li>NIST CSF</li><li>OWASP Top 10</li><li>ISO 27001</li><li>CIS Controls</li></ul>
     </article>
-    <article class="skill-card reveal">
-      <header><span>05</span><h4>Infra &amp; Cloud</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[05]</span><h4>Infra &amp; Cloud</h4></header>
       <p>Lab and prod environments across hypervisors and cloud providers.</p>
-      <ul>
-        <li>AWS</li><li>Azure</li><li>Docker</li><li>Linux</li><li>Active Directory</li><li>VMware</li>
-      </ul>
+      <ul><li>AWS</li><li>Azure</li><li>Docker</li><li>Linux</li><li>Active Directory</li><li>VMware</li></ul>
     </article>
-    <article class="skill-card reveal">
-      <header><span>06</span><h4>Analysis</h4></header>
+    <article class="skill-card panel reveal">
+      <header><span>[06]</span><h4>Analysis</h4></header>
       <p>Turning raw telemetry and malware into actionable intel.</p>
-      <ul>
-        <li>Static &amp; dynamic analysis</li><li>Packet inspection</li><li>OSINT</li><li>Threat modeling</li>
-      </ul>
+      <ul><li>Static &amp; dynamic analysis</li><li>Packet inspection</li><li>OSINT</li><li>Threat modeling</li></ul>
     </article>
   </div>
 </section>
 
 <!-- Contact -->
 <section class="section contact" id="contact">
-  <div class="contact-wrap">
-    <span class="eyebrow">Contact / 04</span>
+  <div class="contact-wrap panel reveal">
+    <span class="eyebrow">// 04 - establish_connection</span>
     <h2 class="contact-title">
       <span>Let's build something</span>
-      <span class="italic">worth breaking.</span>
+      <span class="hl">worth breaking.</span>
     </h2>
 
     <a class="contact-cta" href="mailto:ashishdevchoudhary13@gmail.com" data-cursor="mail">
@@ -422,27 +424,25 @@
 
     <div class="contact-links">
       <a href="https://linkedin.com/in/ashishdev13" target="_blank" rel="noopener" data-cursor="link">
-        <span>LinkedIn</span>
+        <span>[ LinkedIn ]</span>
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </a>
       <a href="https://github.com/Ashishdev13" target="_blank" rel="noopener" data-cursor="link">
-        <span>GitHub</span>
+        <span>[ GitHub ]</span>
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </a>
       <a href="tel:+16192543235" data-cursor="link">
-        <span>+1 (619) 254-3235</span>
+        <span>[ +1 619 254 3235 ]</span>
         <svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </a>
     </div>
   </div>
 
   <footer class="foot">
-    <div>© 2026 Ashish Dev Choudhary</div>
-    <div class="foot-mid">Designed &amp; built in Tucson, AZ</div>
+    <div>© 2026 ashish_dev_choudhary</div>
+    <div class="foot-mid">// built in tucson, az</div>
     <div>
-      <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-cursor="link">
-        Back to top ↑
-      </button>
+      <button class="top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" data-cursor="link">^ back_to_top</button>
     </div>
   </footer>
 </section>
